@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -30,8 +30,8 @@ public class AppController {
         model.addAttribute("user", new User());
         return "signup_form";
     }
-    
-    // @RequestMapping
+
+    @RequestMapping
     @PostMapping("/process_register")
     public String processRegistration(User user){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -41,7 +41,7 @@ public class AppController {
         repo.save(user);
         return "register_success";
     }
-    
+
     @GetMapping("/list_users")
     public String ViewUserList(Model model) {
         List<User> listUsers = repo.findAll();

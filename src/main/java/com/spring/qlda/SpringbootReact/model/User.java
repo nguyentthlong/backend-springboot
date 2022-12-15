@@ -1,7 +1,5 @@
 package com.spring.qlda.SpringbootReact.model;
 
-//import javax.persistence.*;
-
 import javax.persistence.*;
 
 @Entity

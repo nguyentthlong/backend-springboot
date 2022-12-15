@@ -1,30 +1,26 @@
 package com.spring.qlda.SpringbootReact.model;
 
+
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity //đây là table trong db
-@Table(name = "student")
-public class Student {
+@Table(name = "giangvien")
+public class GiangVien {
     @Id
-    @Column(name="msv", nullable = false)
-    private Long msv;
+    @GeneratedValue
+    @Column(name="id_giangvien", nullable = false)
+    private Long idGiangVien;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "ten_giangvien", nullable = false)
+    private String tenLop;
 
-    //sua lại join tu bang class
-    //ko phai ten lop, chi là id
-    @Column(name = "class", nullable = false)
-    private String class_lop;
     @Column(name = "gender")
     private String gender;
 
@@ -40,44 +36,30 @@ public class Student {
     @Column(name = "phone", nullable = false)
     private String phone;
 
-    @OneToOne
-    @JoinColumn(name = "lopID")
-    private Class lopID;
+    @Column(name = "hoc_vi", nullable = false)
+    private String hocVi;
+
+    @Column(name = "chuc_vu", nullable = false)
+    private String chucVu;
 
     @OneToOne
-    @JoinColumn(name = "detaiID")
-    private DeTai detaiID;
+    @JoinColumn(name = "khoa_id")
+    private Khoa khoaID;
 
-    public DeTai getDetaiID() {
-        return detaiID;
+    public Long getIdGiangVien() {
+        return idGiangVien;
     }
 
-    public void setDetaiID(DeTai detaiID) {
-        this.detaiID = detaiID;
+    public void setIdGiangVien(Long idGiangVien) {
+        this.idGiangVien = idGiangVien;
     }
 
-    public Class getLopID() {
-        return lopID;
+    public String getTenLop() {
+        return tenLop;
     }
 
-    public void setLopID(Class lopID) {
-        this.lopID = lopID;
-    }
-
-    public Long getMsv() {
-        return msv;
-    }
-
-    public void setMsv(Long msv) {
-        this.msv = msv;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setTenLop(String tenLop) {
+        this.tenLop = tenLop;
     }
 
     public String getGender() {
@@ -120,11 +102,28 @@ public class Student {
         this.phone = phone;
     }
 
-    public String getClass_lop() {
-        return class_lop;
+    public String getHocVi() {
+        return hocVi;
     }
 
-    public void setClass_lop(String class_lop) {
-        this.class_lop = class_lop;
+    public void setHocVi(String hocVi) {
+        this.hocVi = hocVi;
+    }
+
+    public String getChucVu() {
+        return chucVu;
+    }
+
+    public void setChucVu(String chucVu) {
+        this.chucVu = chucVu;
+    }
+
+    public Khoa getKhoaID() {
+        return khoaID;
+    }
+
+    public void setKhoaID(Khoa khoaID) {
+        this.khoaID = khoaID;
     }
 }
+
