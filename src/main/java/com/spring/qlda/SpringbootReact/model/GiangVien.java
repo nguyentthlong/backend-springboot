@@ -19,7 +19,7 @@ public class GiangVien {
     private Long idGiangVien;
 
     @Column(name = "ten_giangvien", nullable = false)
-    private String tenLop;
+    private String tenGiangVien;
 
     @Column(name = "gender")
     private String gender;
@@ -54,12 +54,12 @@ public class GiangVien {
         this.idGiangVien = idGiangVien;
     }
 
-    public String getTenLop() {
-        return tenLop;
+    public String getTenGiangVien() {
+        return tenGiangVien;
     }
 
-    public void setTenLop(String tenLop) {
-        this.tenLop = tenLop;
+    public void setTenGiangVien(String tenGiangVien) {
+        this.tenGiangVien = tenGiangVien;
     }
 
     public String getGender() {

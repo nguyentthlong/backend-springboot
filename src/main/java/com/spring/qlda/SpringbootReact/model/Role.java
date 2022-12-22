@@ -3,29 +3,29 @@ package com.spring.qlda.SpringbootReact.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Role", //
-        uniqueConstraints = { //
-                @UniqueConstraint(name = "ROLE_UK", columnNames = "Role_Name") })
+@Table(name = "roles" //
+//        uniqueConstraints = { //
+//                @UniqueConstraint(name = "ROLE_UK", columnNames = "Role_Name") }
+               )
 public class Role {
     @Id
     @GeneratedValue
-    @Column(name = "Role_Id", nullable = false)
-    private Long roleId;
+    @Column(name = "id_role")
+    private Integer idRole;
 
-    @Column(name = "Role_Name", length = 30, nullable = false)
     private String roleName;
 
-    @Override
-    public String toString() {
-        return "Role {roleId=" + roleId + ", roleName=" + roleName + "}";
+//    @Override
+//    public String toString() {
+//        return "Role {idRole=" + idRole + ", roleName=" + roleName + "}";
+//    }
+
+    public Integer getIdRole() {
+        return idRole;
     }
 
-    public Long getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setIdRole(Integer idRole) {
+        this.idRole = idRole;
     }
 
     public String getRoleName() {

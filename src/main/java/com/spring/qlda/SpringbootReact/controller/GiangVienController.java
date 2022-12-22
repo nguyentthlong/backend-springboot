@@ -1,8 +1,8 @@
 package com.spring.qlda.SpringbootReact.controller;
 
 import com.spring.qlda.SpringbootReact.exception.ResourceNotFound;
-import com.spring.qlda.SpringbootReact.model.Student;
-import com.spring.qlda.SpringbootReact.repository.StudentRepository;
+import com.spring.qlda.SpringbootReact.model.GiangVien;
+import com.spring.qlda.SpringbootReact.repository.GiangVienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,22 +11,22 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/admin/sinhvien")
-public class StudentController {
+@RequestMapping("/api/admin/giangvien")
+public class GiangVienController {
     @Autowired
-    private StudentRepository studentRepository;
+    private GiangVienRepository giangvienRepository;
 
     @GetMapping
-    public List<Student> getAllUsers(){
-        return studentRepository.findAll();
+    public List<GiangVien> getAllGiangVien(){
+        return giangvienRepository.findAll();
     }
 
     //create rest api, add student
     // dang loi chua post dc
     //da fix loi mysql
     @PostMapping
-    public Student createStudent(@RequestBody Student student){
-        return studentRepository.save(student);
+    public GiangVien createGiangVien(@RequestBody GiangVien giangvien){
+        return giangvienRepository.save(giangvien);
     }
 
 //    @Autowired
@@ -40,11 +40,11 @@ public class StudentController {
 //        return classRepository.save(lop);
     // update student
     //get student by id(msv)
-    @GetMapping("{msv}")
-    public ResponseEntity<Student> getStudentByMsv(@PathVariable long msv){
-        Student student = studentRepository.findById(msv)
-                .orElseThrow(() -> new ResourceNotFound("Không tồn tại mã sinh viên: " + msv));
-        return ResponseEntity.ok(student);
+    @GetMapping("{idGiangVien}")
+    public ResponseEntity<GiangVien> getGianngVienByidGiangVien(@PathVariable long idGiangVien){
+        GiangVien giangvien = giangvienRepository.findById(idGiangVien)
+                .orElseThrow(() -> new ResourceNotFound("Không tồn tại mã giảng viên: " + idGiangVien));
+        return ResponseEntity.ok(giangvien);
     }
     //update
 

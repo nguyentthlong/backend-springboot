@@ -1,8 +1,8 @@
 package com.spring.qlda.SpringbootReact.controller;
 
 import com.spring.qlda.SpringbootReact.exception.ResourceNotFound;
-import com.spring.qlda.SpringbootReact.model.Student;
-import com.spring.qlda.SpringbootReact.repository.StudentRepository;
+import com.spring.qlda.SpringbootReact.model.DeTai;
+import com.spring.qlda.SpringbootReact.repository.DeTaiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,22 +11,22 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/admin/sinhvien")
-public class StudentController {
+@RequestMapping("/api/admin/detai")
+public class DeTaiController {
     @Autowired
-    private StudentRepository studentRepository;
+    private DeTaiRepository detaiRepository;
 
     @GetMapping
-    public List<Student> getAllUsers(){
-        return studentRepository.findAll();
+    public List<DeTai> getAllDeTai(){
+        return detaiRepository.findAll();
     }
 
     //create rest api, add student
     // dang loi chua post dc
     //da fix loi mysql
     @PostMapping
-    public Student createStudent(@RequestBody Student student){
-        return studentRepository.save(student);
+    public DeTai createDeTai(@RequestBody DeTai detai){
+        return detaiRepository.save(detai);
     }
 
 //    @Autowired
@@ -40,11 +40,11 @@ public class StudentController {
 //        return classRepository.save(lop);
     // update student
     //get student by id(msv)
-    @GetMapping("{msv}")
-    public ResponseEntity<Student> getStudentByMsv(@PathVariable long msv){
-        Student student = studentRepository.findById(msv)
-                .orElseThrow(() -> new ResourceNotFound("Không tồn tại mã sinh viên: " + msv));
-        return ResponseEntity.ok(student);
+    @GetMapping("{idDT}")
+    public ResponseEntity<DeTai> getDeTaiByidDT(@PathVariable long idDT){
+        DeTai detai = detaiRepository.findById(idDT)
+                .orElseThrow(() -> new ResourceNotFound("Không tồn tại mã đề tài: " + idDT));
+        return ResponseEntity.ok(detai);
     }
     //update
 

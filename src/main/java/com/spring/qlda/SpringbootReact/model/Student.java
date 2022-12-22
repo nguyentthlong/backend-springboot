@@ -21,10 +21,6 @@ public class Student {
     @Column(name = "name", nullable = false)
     private String name;
 
-    //sua lại join tu bang class
-    //ko phai ten lop, chi là id
-    @Column(name = "class", nullable = false)
-    private String class_lop;
     @Column(name = "gender")
     private String gender;
 
@@ -120,11 +116,4 @@ public class Student {
         this.phone = phone;
     }
 
-    public String getClass_lop() {
-        return class_lop;
-    }
-
-    public void setClass_lop(String class_lop) {
-        this.class_lop = class_lop;
-    }
 }
