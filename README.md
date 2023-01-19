@@ -1,3 +1,3 @@
 # backend-springboot
 
-Backend của qlda
+Backend của qlda https://github.com/nguyentthlong/qlda
